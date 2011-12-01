@@ -26,6 +26,17 @@
     'matrix', 'matrix3d', 'perspective'
   ];
   
+  // Implement Array.prototype.indexOf if it's not.  This is
+  // mainly Internet Explorer.
+  if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function(obj, start) {
+      for (var i = (start || 0), j = this.length; i < j; i++) {
+        (this[i] === obj) && (return i);
+      }
+      return -1;
+    }
+  }
+  
   // Helper function for easily adding transforms.
   $.fn.transform = function (properties, cb) {
     var transforms = [];
