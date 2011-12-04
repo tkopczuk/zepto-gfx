@@ -72,17 +72,19 @@
   $.fn.gfxPopOut = function (options, cb) {
     var $that = $(this),
         opts = $.extend({}, defaults, options || {});
+        
+    opts.scale = opts.scale || 0.2;
     
     $that.transform({
       '-webkit-transform-origin': '50% 50%',
       '-moz-transform-origin': '50% 50%',
       scale: '1',
       opacity: '1'
-    }).animate({opacity: '0', scale: '.2'}, 
+    }).animate({opacity: 0, scale: opts.scale}, 
       opts.duration, opts.easing, function () {
         
       $that.transform({display: 'none', 
-        opacity: '1', scale: '1'});
+        opacity: 1, scale: 1});
         
       cb && cb();
     });
