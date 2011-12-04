@@ -6,11 +6,11 @@ The main difference between GFX and Zepto-GFX is that GFX uses jQuery's queueing
 
 All the basic Zepto-GFX effects can take in a callback function to be executed once the animation is complete.  For `$.fn.gfxFlip()` and `$.fn.gfxCube()` effects however, instead of accepting a callback, an event is triggered when an animation related to these effects has occurred.  For example, when `$.fn.gfxFlip()` does a flip, a `flip:changed` event is triggered.  More details in the specific sections below.
 
-# Browser support
+## Browser support
 
 Zepto-GFX currently only supports WebKit browsers (Safari/Chrome).
 
-# Usage
+## Usage
 
 [Zepto](https://github.com/madrobby/zepto) must be included first before including any of the Zepto-GFX files followed by `zepto-gfx.js`.
 
@@ -19,7 +19,7 @@ Zepto-GFX currently only supports WebKit browsers (Safari/Chrome).
       
 For the basic effects, this is enough.
 
-# Basic effects
+## Basic effects
 
 The basic effects include the following:
 
@@ -50,7 +50,7 @@ The first argument `options` contain the valid options for the basic effects:
 
 The second argument `cb` is the callback function to be executed when the animation is complete.
 
-# Flip effect
+## Flip effect
 
 The flip effect is for showing two elements that be can flipped between each other. To use it, first include the `zepto-gfx.flip.js` script along with `zepto-gfx.js` and `zepto.js`.
 
@@ -81,7 +81,7 @@ An event, `flip:changed` is triggered when the element is flipped.  If the eleme
         }
       });
       
-# Cube effect
+## Cube effect
 
 To use the cube effect, first include the `zepto-gfx.cube.js` script along with `zepto-gfx.js` and `zepto.js`.
 
@@ -123,11 +123,11 @@ An event, `cube:changed` is triggered when the cube's face is changed.  The seco
         console.log(face);
       });
       
-# To do
+## To do
 
 - Tests
 - Demos
 
-# License
+## License
 
 Zepto-GFX is is licensed under the terms of the MIT License, see the included LICENSE file.
