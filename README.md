@@ -127,3 +127,7 @@ An event, `cube:changed` is triggered when the cube's face is changed.  The seco
 
 - Tests
 - Demos
+
+# License
+
+Zepto-GFX is is licensed under the terms of the MIT License, see the included LICENSE file.
