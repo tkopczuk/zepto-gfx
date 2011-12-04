@@ -125,6 +125,5 @@ An event, `cube:changed` is triggered when the cube's face is changed.  The seco
       
 # To do
 
-- Firefox, Opera and and IE9+ support.
 - Tests
 - Demos
