@@ -45,8 +45,8 @@
       }
     } 
 
-    transforms.length && 
-      (properties[n.transform] = transforms.join(' '));
+    if (transforms.length) 
+      properties[n.transform] = transforms.join(' ');
       
     return $(this).css(properties);
   };
@@ -133,7 +133,7 @@
             opts.duration, opts.easing, second);
         };
         
-    opts.duration = opts.duration && 100;
+    opts.duration = opts.duration || 100;
     opts.easing = opts.easing || 'ease-out';
     distance = opts.distance || 20;
     
@@ -175,7 +175,7 @@
           cb && cb();
         };
         
-    (opts.reset) && (c = second);
+    if (opts.reset) c = second;
     opts.scale = opts.scale || 3;
     
     $that.transform({scale: 1, opacity: 1})
@@ -200,7 +200,7 @@
           cb && cb();
         };
         
-    (opts.reset) && (c = first);
+    if (opts.reset) c = first;
     
     $that.transform({rotateY: 0, scale: 1})
       .animate({rotateY: '-180deg', scale: 0.8}, opts.duration, 
@@ -216,7 +216,7 @@
           cb && cb();
         };
         
-    (opts.reset) && (c = first);
+    if (opts.reset) c = first;
         
     $that.transform({rotateY: 0}).animate({rotateY: '-180deg'}, 
       opts.duration, opts.easing, c);
@@ -238,7 +238,7 @@
         
     opts.direction = opts.direction || 'right';
     distance = opts.distance || 100;
-    (opts.direction === 'left') && (distance *= -1);
+    if (opts.direction === 'left') distance *= -1;
     distance += '%';
     
     opacity = opts.fade ? 0 : 1;
@@ -259,7 +259,7 @@
         
     opts.direction = opts.direction || 'right';
     distance = opts.distance || 100;
-    (opts.direction === 'left') && (distance *= -1);
+    if (opts.direction === 'left') distance *= -1;
     distance += '%';
     
     opacity = opts.fade ? 0 : 1;

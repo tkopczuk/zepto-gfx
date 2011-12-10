@@ -27,7 +27,7 @@
         wrapper = $('<div />'),
         front, back, right, left, top, bottom;
         
-    (typeof tZ === 'number') && (tZ += 'px');
+    if (typeof tZ === 'number') tZ += 'px';
     
     $that.transform({
       position: 'relative',
