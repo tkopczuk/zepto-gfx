@@ -1,4 +1,15 @@
-(function ($) {
+(function(root, factory) {
+  // Set up Zepto-GFX-Flip appropriately for the environment.
+  if ( typeof define === 'function' && define.amd ) {
+    // AMD
+    define('zepto-gfx-flip', ['zepto'], function( Zepto ) {
+      factory( Zepto );
+    });
+  } else {
+    // Browser global scope
+    factory( root.Zepto );
+  }
+}(this, function ( $ ) {
 
   var defaults = {
     width: 120,
@@ -6,11 +17,11 @@
     duration: 400,
     easing: ''
   };
-  
+
   $.fn.gfxFlip = function (options) {
     var $that = $(this),
         opts = $.extend({}, defaults, options || {}),
-        front = $that.find('.front'), 
+        front = $that.find('.front'),
         back = $that.find('.back');
         
     $that.css({
@@ -52,14 +63,13 @@
         backRotateY = '-180deg';
       }
       
-      front.animate({rotateY: frontRotateY}, 
+      front.animate({rotateY: frontRotateY},
         opts.duration, opts.easing);
-      back.animate({rotateY: backRotateY}, 
+      back.animate({rotateY: backRotateY},
         opts.duration, opts.easing, function () {
         $that.trigger('flip:changed');
       });
     });
-      
   };
 
-})(Zepto);
+}));

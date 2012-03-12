@@ -1,4 +1,15 @@
-(function ($) {
+(function(root, factory) {
+  // Set up Zepto-GFX-Cube appropriately for the environment.
+  if ( typeof define === 'function' && define.amd ) {
+    // AMD
+    define('zepto-gfx-cube', ['zepto'], function( Zepto ) {
+      factory( Zepto );
+    });
+  } else {
+    // Browser global scope
+    factory( root.Zepto );
+  }
+}(this, function ( $ ) {
   
   var sides = {
     front: {rotateY: '0deg',    rotateX: '0deg'},
@@ -27,7 +38,7 @@
         wrapper = $('<div />'),
         front, back, right, left, top, bottom;
         
-    if (typeof tZ === 'number') tZ += 'px';
+    if (typeof tZ === 'number') { tZ += 'px'; }
     
     $that.transform({
       position: 'relative',
@@ -51,7 +62,7 @@
       translateZ: '-' + tZ,
       '-webkit-transform-style': 'preserve-3d',
       '-moz-transform-style': 'preserve-3d',
-      '-webkit-transform-origin': '50% 50%',    
+      '-webkit-transform-origin': '50% 50%',
       '-moz-transform-origin': '50% 50%'
     });
     
@@ -83,7 +94,7 @@
     
     $that.bind('cube', function (e, type) {
       $that.find('.gfxCubeWrapper')
-        .animate($.extend({}, {translateZ: '-' + tZ}, sides[type]), 
+        .animate($.extend({}, {translateZ: '-' + tZ}, sides[type]),
         opts.duration, opts.easing, function () {
           
         $that.trigger('cube:changed', type);
@@ -135,7 +146,7 @@
         wrapper.children('.' + type).show();
         $that.trigger('cube:changed', type);
       });
-    }
+    };
   }
   
-})(Zepto);
+}));
